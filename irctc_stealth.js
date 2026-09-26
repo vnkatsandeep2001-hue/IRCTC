@@ -89,7 +89,7 @@ async function run() {
   const username = process.env.IRCTC_USERNAME;
   const password = process.env.IRCTC_PASSWORD;
 
-  if (username && username !== 'your_username') {
+  if (username && username.trim() !== '' && username !== 'your_username' && password && password.trim() !== '' && password !== 'your_password') {
     console.log(`Attempting login for user: ${username}...`);
     try {
       // Comprehensive locator for the login/register button

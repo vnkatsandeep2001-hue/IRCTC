@@ -82,7 +82,7 @@ test('IRCTC Search Train Test with Login', async () => {
     const username = process.env.IRCTC_USERNAME;
     const password = process.env.IRCTC_PASSWORD;
 
-    if (username && username !== 'your_username') {
+    if (username && username.trim() !== '' && username !== 'your_username' && password && password.trim() !== '' && password !== 'your_password') {
       console.log(`Attempting login for user: ${username}...`);
       const loginButton = page.locator([
         'a:has-text("LOGIN")',
