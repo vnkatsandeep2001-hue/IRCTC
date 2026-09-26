@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment and sensitive variables
+.env
+.env.local
+*.env
+
+# User data and persistent browser sessions
+user_data/
+
+# Playwright reports & test results
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# OS / IDE metadata
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

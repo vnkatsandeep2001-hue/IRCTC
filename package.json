@@ -1,0 +1,15 @@
+{
+  "name": "irctc-automation",
+  "version": "1.0.0",
+  "description": "Playwright script with stealth configurations for IRCTC automation",
+  "main": "irctc_stealth.js",
+  "scripts": {
+    "start": "node irctc_stealth.js",
+    "test": "playwright test"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.63.0",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.49.0"
+  }
+}
