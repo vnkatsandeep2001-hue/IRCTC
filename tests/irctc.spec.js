@@ -92,12 +92,12 @@ test('IRCTC Search Train Test with Login', async () => {
         'button:has-text("LOGIN")',
         'button:has-text("Login")'
       ].join(', ')).first();
-      
+
       await loginButton.click({ timeout: 5000 });
-      
+
       const usernameInput = page.locator('input[formcontrolname="username"], input[placeholder*="User Name"], input[placeholder*="UserName"]');
       const passwordInput = page.locator('input[formcontrolname="password"], input[placeholder*="Password"]');
-      
+
       await usernameInput.waitFor({ state: 'visible', timeout: 5000 });
       await usernameInput.fill(username);
       await page.waitForTimeout(300);
@@ -132,7 +132,7 @@ test('IRCTC Search Train Test with Login', async () => {
             await page.waitForTimeout(1000);
           }
         }
-      } catch (e) {}
+      } catch (e) { }
     }
 
     // Step 4: Journey inputs
@@ -197,7 +197,7 @@ test('IRCTC Search Train Test with Login', async () => {
         await page.locator('p-dropdown[id="journeyClass"], p-dropdown[formcontrolname="journeyClass"]').click();
         await page.locator(`p-dropdown li:has-text("${ticketClass}")`).click();
         console.log(`✓ Selected Class: ${ticketClass}`);
-      } catch (e) {}
+      } catch (e) { }
     }
 
     const ticketQuota = process.env.TICKET_QUOTA;
@@ -206,14 +206,14 @@ test('IRCTC Search Train Test with Login', async () => {
         await page.locator('p-dropdown[id="journeyQuota"], p-dropdown[formcontrolname="journeyQuota"]').click();
         await page.locator(`p-dropdown li:has-text("${ticketQuota}")`).click();
         console.log(`✓ Selected Quota: ${ticketQuota}`);
-      } catch (e) {}
+      } catch (e) { }
     }
 
     // Step 5: Search trains
     const searchBtn = page.locator('button[type="submit"].search_btn, button:has-text("Search")').first();
     await searchBtn.click();
     console.log('✓ Search button clicked.');
-    
+
     // Assert results have loaded
     await page.waitForTimeout(5000);
     console.log('✓ Test finished successfully.');

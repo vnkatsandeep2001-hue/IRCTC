@@ -4,14 +4,14 @@ test.describe('IRCTC Portal Demo Test Suite', () => {
 
   test.beforeEach(async ({ page }) => {
     // Navigate to IRCTC homepage before each test
-    await page.goto('https://www.irctc.co.in/nget/train-search', { 
-      waitUntil: 'domcontentloaded', 
-      timeout: 60000 
+    await page.goto('https://www.irctc.co.in/nget/train-search', {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000
     });
   });
 
-  // Test 1: Validate Page Title and URL
-  test('01 - Verify Homepage Title and URL', async ({ page }) => {
+  // Tagged with @smoke and @sanity
+  test('01 - Verify Homepage Title and URL @smoke @sanity', async ({ page }) => {
     await expect(page).toHaveURL(/irctc\.co\.in/);
     const title = await page.title();
     console.log('Page Title:', title);
