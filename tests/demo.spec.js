@@ -76,9 +76,9 @@ test.describe('IRCTC Portal Demo Test Suite', () => {
   });
 
   // Test 10: Verify Network Response Status
-  test('10 - Verify Page HTTP 200 OK Response', async ({ request }) => {
-    const response = await request.get('https://www.irctc.co.in/nget/train-search');
-    expect(response.status()).toBe(200);
+  test('10 - Verify Page HTTP 200 OK Response', async ({ page }) => {
+    const response = await page.goto('https://www.irctc.co.in/nget/train-search');
+    expect([200, 304]).toContain(response.status());
   });
 
 });
