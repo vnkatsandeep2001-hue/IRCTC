@@ -38,7 +38,7 @@ jobs:
         JOURNEY_DATE: '25/08/2026'
         TICKET_CLASS: '3A'
         TICKET_QUOTA: 'GENERAL'
-      run: npx playwright test
+      run: xvfb-run npx playwright test
 
     - name: Upload Playwright HTML Report
       uses: actions/upload-artifact@v4

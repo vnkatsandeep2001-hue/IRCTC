@@ -3,6 +3,13 @@ const { test, expect } = require('@playwright/test');
 test.describe('IRCTC Portal Demo Test Suite', () => {
 
   test.beforeEach(async ({ page }) => {
+    // Add stealth init script to hide automation flags from IRCTC Akamai bot detection
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+      Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+      Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
+    });
+
     // Navigate to IRCTC homepage before each test
     await page.goto('https://www.irctc.co.in/nget/train-search', {
       waitUntil: 'domcontentloaded',

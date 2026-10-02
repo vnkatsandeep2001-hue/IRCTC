@@ -22,11 +22,14 @@ module.exports = defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://www.irctc.co.in',
 
-    /* Run browser in headed mode since headless is blocked by IRCTC */
+    /* Run browser in headed mode locally or via Xvfb in CI */
     headless: false,
 
     /* Use Google Chrome to bypass TLS fingerprint blocks */
     channel: 'chrome',
+
+    /* Custom realistic User-Agent to bypass Cloudflare/Akamai bot filters in CI */
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
 
     /* Keep viewport maximized/null */
     viewport: null,
